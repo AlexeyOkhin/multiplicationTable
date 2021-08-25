@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -17,7 +15,8 @@ class TestPage extends StatefulWidget {
 }
 
 class _TestPageState extends State<TestPage> {
-  Duration _timerDuration = Duration(seconds: 8);
+  Duration _timerDuration = Duration(seconds: 10);
+  RestartableTimer _timer;
   var numWrongAnswer = 0;
   String textAlertTitle;
   String textAlertDisription;
@@ -30,8 +29,10 @@ class _TestPageState extends State<TestPage> {
   Random randomize = Random();
 
   void _onSubmited(String text) {
+
     setState(() {
       print(text);
+      _timer.reset();
       controllerOne.clear();
       Icon iconTrue = Icon(
         Icons.school,
@@ -53,6 +54,8 @@ class _TestPageState extends State<TestPage> {
       }
 
       if (_arrayAnswerCheck.length == 10) {
+        _timer.cancel();
+
         switch (numWrongAnswer) {
           case 0:
             textAlertTitle = "Ты молодец 😃";
@@ -86,7 +89,7 @@ class _TestPageState extends State<TestPage> {
               onPressed: () {
                 Navigator.pushNamedAndRemoveUntil(
                     context, "/", (route) => false);
-                setState(() {});
+
               },
               color: Color.fromRGBO(0, 179, 134, 1.0),
             ),
@@ -137,16 +140,16 @@ class _TestPageState extends State<TestPage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-
+    _timer = RestartableTimer(_timerDuration, () {_onSubmited(" ");});
     print("initState");
     labelText = _getLabelText();
 
-    setState(() {
+
       _arrayExemples = getExample(widget.numButton).keys.toList();
       _dictionaryExamples = getExample(widget.numButton);
 
       print(_arrayExemples);
-    });
+
   }
 
   @override
@@ -156,11 +159,8 @@ class _TestPageState extends State<TestPage> {
 
   @override
   Widget build(BuildContext context) {
-    RestartableTimer _timer = new RestartableTimer(_timerDuration, () {
-      setState(() {
-        _onSubmited(" ");
-      });
-    });
+
+
 
     labelText = _getLabelText();
 

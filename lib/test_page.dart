@@ -17,19 +17,20 @@ class TestPage extends StatefulWidget {
 }
 
 class _TestPageState extends State<TestPage> {
-Duration _timerDuration = Duration(seconds: 5);
+  Duration _timerDuration = Duration(seconds: 8);
   var numWrongAnswer = 0;
+  String textAlertTitle;
+  String textAlertDisription;
   var labelText = "";
   var _arrayExemples = <String>[];
   var _dictionaryExamples = Map<String, int>();
-  FocusNode focusNodeOne;
+
   List<Icon> _arrayAnswerCheck = [];
   final controllerOne = TextEditingController();
   Random randomize = Random();
 
   void _onSubmited(String text) {
     setState(() {
-
       print(text);
       controllerOne.clear();
       Icon iconTrue = Icon(
@@ -52,15 +53,30 @@ Duration _timerDuration = Duration(seconds: 5);
       }
 
       if (_arrayAnswerCheck.length == 10) {
-        // switch numWrongAnswer {
-        //
-        // }
+        switch (numWrongAnswer) {
+          case 0:
+            textAlertTitle = "Ты молодец 😃";
+            textAlertDisription = "Поздравляю!!!";
+            break;
+          case 1:
+            textAlertTitle = "Хорошо 🧑";
+            textAlertDisription = "Можно повторить";
+            break;
+          case 2:
+            textAlertTitle = "Хорошо 🧑";
+            textAlertDisription = "Советую повторить!";
+            break;
+
+          default:
+            textAlertTitle = "Плохо ☹";
+            textAlertDisription = "Обязательно повтори урок!!";
+        }
 
         Alert(
           context: context,
           type: AlertType.info,
-          title: "ОПРОС ОКОНЧЕН $numWrongAnswer ошибок",
-          desc: "ВЫ ответили на все вопросы",
+          title: textAlertTitle,
+          desc: textAlertDisription,
           buttons: [
             DialogButton(
               child: Text(
@@ -68,8 +84,8 @@ Duration _timerDuration = Duration(seconds: 5);
                 style: TextStyle(color: Colors.white, fontSize: 18),
               ),
               onPressed: () {
-                //backPage = true;
-                Navigator.pushNamedAndRemoveUntil(context, "/", (route) => false);
+                Navigator.pushNamedAndRemoveUntil(
+                    context, "/", (route) => false);
                 setState(() {});
               },
               color: Color.fromRGBO(0, 179, 134, 1.0),
@@ -98,8 +114,6 @@ Duration _timerDuration = Duration(seconds: 5);
     });
   }
 
-
-
   Map<String, int> getExample(int numButton) {
     Map<String, int> _dictionary = <String, int>{};
     if (numButton < 11) {
@@ -113,35 +127,30 @@ Duration _timerDuration = Duration(seconds: 5);
     }
   }
 
-
   String _getLabelText() {
     return _arrayExemples.length > 0
         ? _arrayExemples.removeAt(randomize.nextInt(_arrayExemples.length))
         : " ";
   }
 
-
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
 
-
     print("initState");
     labelText = _getLabelText();
-    focusNodeOne = FocusNode();
+
     setState(() {
       _arrayExemples = getExample(widget.numButton).keys.toList();
       _dictionaryExamples = getExample(widget.numButton);
 
       print(_arrayExemples);
-      focusNodeOne.requestFocus();
     });
   }
 
   @override
   void dispose() {
-    focusNodeOne.dispose();
     super.dispose();
   }
 
@@ -152,9 +161,8 @@ Duration _timerDuration = Duration(seconds: 5);
         _onSubmited(" ");
       });
     });
-    focusNodeOne.requestFocus();
-    labelText = _getLabelText();
 
+    labelText = _getLabelText();
 
     return Container(
       decoration: BoxDecoration(
@@ -202,12 +210,13 @@ Duration _timerDuration = Duration(seconds: 5);
                   Container(
                     width: 140,
                     child: TextField(
-                      focusNode: focusNodeOne,
+                      //focusNode: focusNodeOne,
                       autofocus: true,
 
                       //maxLength: 2,
                       controller: controllerOne,
                       onSubmitted: _onSubmited,
+                      onEditingComplete: () {},
                       textInputAction: TextInputAction.done,
                       style: TextStyle(
                           fontFamily: "LCChalk",
@@ -220,11 +229,11 @@ Duration _timerDuration = Duration(seconds: 5);
                           border: OutlineInputBorder(),
                           enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                style: BorderStyle.none,
+                            style: BorderStyle.none,
                           )),
                           focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                style: BorderStyle.none,
+                            style: BorderStyle.none,
                           ))),
                     ),
                   ),

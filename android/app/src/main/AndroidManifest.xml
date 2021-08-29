@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.multiplication_table">
    <application
-        android:label="multiplication_table"
+        android:label="7*8=56"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:multiplication_table/test_page.dart';
 import 'info_multipler.dart';
-
+import 'const_setting.dart';
 
 void main() {
   runApp(StartPage());
@@ -77,13 +77,7 @@ class MyStartApp extends StatelessWidget {
                         context,
                         MaterialPageRoute(builder: (context) => TestPage(numButton: numButton,)),
                       );},
-                      child: Text(
-                        "2x",
-                        style: TextStyle(
-                            fontSize: 50,
-                            color: Colors.white70,
-                            fontFamily: "LCChalk"),
-                      ),
+                      child: StyleTextConst(text: "x2",size: 50),
                     ),
                     TextButton(
                       onPressed: () {
@@ -92,13 +86,7 @@ class MyStartApp extends StatelessWidget {
                           context,
                           MaterialPageRoute(builder: (context) => TestPage(numButton: numButton,)),
                         );},
-                      child: Text(
-                        "3x",
-                        style: TextStyle(
-                            fontSize: 50,
-                            color: Colors.white70,
-                            fontFamily: "LCChalk"),
-                      ),
+                      child: StyleTextConst(text: "x3",size: 50),
                     ),
                     TextButton(
                       onPressed: () {
@@ -107,13 +95,7 @@ class MyStartApp extends StatelessWidget {
                           context,
                           MaterialPageRoute(builder: (context) => TestPage(numButton: numButton,)),
                         );},
-                      child: Text(
-                        "4x",
-                        style: TextStyle(
-                            fontSize: 50,
-                            color: Colors.white70,
-                            fontFamily: "LCChalk"),
-                      ),
+                      child: StyleTextConst(text: "x4",size: 50),
                     ),
                   ],
                 ),
@@ -129,13 +111,7 @@ class MyStartApp extends StatelessWidget {
                           context,
                           MaterialPageRoute(builder: (context) => TestPage(numButton: numButton,)),
                         );},
-                      child: Text(
-                        "5x",
-                        style: TextStyle(
-                            fontSize: 50,
-                            color: Colors.white70,
-                            fontFamily: "LCChalk"),
-                      ),
+                      child: StyleTextConst(text: "x5",size: 50),
                     ),
                     TextButton(
                       onPressed: () {
@@ -144,13 +120,7 @@ class MyStartApp extends StatelessWidget {
                           context,
                           MaterialPageRoute(builder: (context) => TestPage(numButton: numButton,)),
                         );},
-                      child: Text(
-                        "6x",
-                        style: TextStyle(
-                            fontSize: 50,
-                            color: Colors.white70,
-                            fontFamily: "LCChalk"),
-                      ),
+                      child: StyleTextConst(text: "x6",size: 50),
                     ),
                     TextButton(
                       onPressed: () {
@@ -159,13 +129,7 @@ class MyStartApp extends StatelessWidget {
                           context,
                           MaterialPageRoute(builder: (context) => TestPage(numButton: numButton,)),
                         );},
-                      child: Text(
-                        "7x",
-                        style: TextStyle(
-                            fontSize: 50,
-                            color: Colors.white70,
-                            fontFamily: "LCChalk"),
-                      ),
+                      child: StyleTextConst(text: "x7",size: 50),
                     ),
                   ],
                 ),
@@ -181,13 +145,7 @@ class MyStartApp extends StatelessWidget {
                           context,
                           MaterialPageRoute(builder: (context) => TestPage(numButton: numButton,)),
                         );},
-                      child: Text(
-                        "8x",
-                        style: TextStyle(
-                            fontSize: 50,
-                            color: Colors.white70,
-                            fontFamily: "LCChalk"),
-                      ),
+                      child: StyleTextConst(text: "x8",size: 50),
                     ),
                     TextButton(
                       onPressed: () {
@@ -196,13 +154,7 @@ class MyStartApp extends StatelessWidget {
                           context,
                           MaterialPageRoute(builder: (context) => TestPage(numButton: numButton,)),
                         );},
-                      child: Text(
-                        "9x",
-                        style: TextStyle(
-                            fontSize: 50,
-                            color: Colors.white70,
-                            fontFamily: "LCChalk"),
-                      ),
+                      child: StyleTextConst(text: "x9",size: 50),
                     ),
                     TextButton(
                       onPressed: () {
@@ -211,13 +163,7 @@ class MyStartApp extends StatelessWidget {
                           context,
                           MaterialPageRoute(builder: (context) => TestPage(numButton: numButton,)),
                         );},
-                      child: Text(
-                        "?x",
-                        style: TextStyle(
-                            fontSize: 50,
-                            color: Colors.white70,
-                            fontFamily: "LCChalk"),
-                      ),
+                      child: StyleTextConst(text: "x?",size: 50),
                     ),
                   ],
                 ),

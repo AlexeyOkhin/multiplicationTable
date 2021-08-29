@@ -58,7 +58,7 @@ class _TestPageState extends State<TestPage> {
 
         switch (numWrongAnswer) {
           case 0:
-            textAlertTitle = "Ты молодец 😃";
+            textAlertTitle = "Ты молодец 🥱😃";
             textAlertDisription = "Поздравляю!!!";
             break;
           case 1:
@@ -99,7 +99,9 @@ class _TestPageState extends State<TestPage> {
                 style: TextStyle(color: Colors.white, fontSize: 18),
               ),
               onPressed: () {
+                _timer = RestartableTimer(_timerDuration, () {_onSubmited(" ");});
                 setState(() {
+
                   numWrongAnswer = 0;
                   _arrayAnswerCheck.clear();
                   _arrayExemples = getExample(widget.numButton).keys.toList();
@@ -107,7 +109,7 @@ class _TestPageState extends State<TestPage> {
                 });
               },
               gradient: LinearGradient(colors: [
-                Color.fromRGBO(116, 116, 191, 1.0),
+                Color.fromRGBO(137, 137, 222, 1.0),
                 Color.fromRGBO(52, 138, 199, 1.0),
               ]),
             )
@@ -141,6 +143,7 @@ class _TestPageState extends State<TestPage> {
     // TODO: implement initState
     super.initState();
     _timer = RestartableTimer(_timerDuration, () {_onSubmited(" ");});
+    print("Init timerDuration = $_timerDuration, timer = $_timer");
     print("initState");
     labelText = _getLabelText();
 
@@ -154,13 +157,14 @@ class _TestPageState extends State<TestPage> {
 
   @override
   void dispose() {
+    _timer.cancel();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
 
-
+    print("timerDuration = $_timerDuration, timer = $_timer");
 
     labelText = _getLabelText();
 
@@ -203,12 +207,12 @@ class _TestPageState extends State<TestPage> {
                   Text(
                     labelText,
                     style: TextStyle(
-                        fontSize: 50,
+                        fontSize: 45,
                         color: Colors.white70,
                         fontFamily: "LCChalk"),
                   ),
                   Container(
-                    width: 140,
+                    width: 120,
                     child: TextField(
                       //focusNode: focusNodeOne,
                       autofocus: true,
@@ -221,7 +225,7 @@ class _TestPageState extends State<TestPage> {
                       style: TextStyle(
                           fontFamily: "LCChalk",
                           color: Colors.white70,
-                          fontSize: 50),
+                          fontSize: 45),
 
                       keyboardType: TextInputType.number,
                       showCursor: false,

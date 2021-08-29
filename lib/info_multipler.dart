@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'date_multipler.dart';
-
+import 'const_setting.dart';
 
 class InfoMultipler extends StatelessWidget {
   @override
@@ -68,7 +68,7 @@ class _ButtonsHelperState extends State<ButtonsHelper> {
                     '${date.getTable(numTable)[index]}',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        fontSize: 30,
+                        fontSize: 25,
                         color: Colors.white70,
                         fontFamily: "LCChalk",
                         fontWeight: FontWeight.bold),
@@ -89,13 +89,7 @@ class _ButtonsHelperState extends State<ButtonsHelper> {
                 shape: CircleBorder(
                     side: BorderSide(width: 3, color: Colors.white70)),
                 backgroundColor: Colors.transparent,
-                child: Text(
-                  "1x",
-                  style: TextStyle(
-                      fontSize: 30,
-                      color: Colors.white70,
-                      fontFamily: "LCChalk"),
-                ),
+                child: StyleTextConst(text: "1x",size: 25),
               ),
               FloatingActionButton(
                 onPressed: () {
@@ -106,13 +100,7 @@ class _ButtonsHelperState extends State<ButtonsHelper> {
                 shape: CircleBorder(
                     side: BorderSide(width: 3, color: Colors.white70)),
                 backgroundColor: Colors.transparent,
-                child: Text(
-                  "2x",
-                  style: TextStyle(
-                      fontSize: 30,
-                      color: Colors.white70,
-                      fontFamily: "LCChalk"),
-                ),
+                child: StyleTextConst(text: "2x",size: 25),
               ),
               FloatingActionButton(
                 onPressed: () {
@@ -123,13 +111,7 @@ class _ButtonsHelperState extends State<ButtonsHelper> {
                 shape: CircleBorder(
                     side: BorderSide(width: 3, color: Colors.white70)),
                 backgroundColor: Colors.transparent,
-                child: Text(
-                  "3x",
-                  style: TextStyle(
-                      fontSize: 30,
-                      color: Colors.white70,
-                      fontFamily: "LCChalk"),
-                ),
+                child: StyleTextConst(text: "3x",size: 25),
               ),
               FloatingActionButton(
                 onPressed: () {
@@ -140,13 +122,7 @@ class _ButtonsHelperState extends State<ButtonsHelper> {
                 shape: CircleBorder(
                     side: BorderSide(width: 3, color: Colors.white70)),
                 backgroundColor: Colors.transparent,
-                child: Text(
-                  "4x",
-                  style: TextStyle(
-                      fontSize: 30,
-                      color: Colors.white70,
-                      fontFamily: "LCChalk"),
-                ),
+                child: StyleTextConst(text: "4x",size: 25),
               ),
               FloatingActionButton(
                 onPressed: () {
@@ -157,13 +133,7 @@ class _ButtonsHelperState extends State<ButtonsHelper> {
                 shape: CircleBorder(
                     side: BorderSide(width: 3, color: Colors.white70)),
                 backgroundColor: Colors.transparent,
-                child: Text(
-                  "5x",
-                  style: TextStyle(
-                      fontSize: 30,
-                      color: Colors.white70,
-                      fontFamily: "LCChalk"),
-                ),
+                child: StyleTextConst(text: "5x",size: 25),
               ),
             ],
           ),
@@ -182,13 +152,7 @@ class _ButtonsHelperState extends State<ButtonsHelper> {
                 shape: CircleBorder(
                     side: BorderSide(width: 3, color: Colors.white70)),
                 backgroundColor: Colors.transparent,
-                child: Text(
-                  "6x",
-                  style: TextStyle(
-                      fontSize: 30,
-                      color: Colors.white70,
-                      fontFamily: "LCChalk"),
-                ),
+                child: StyleTextConst(text: "6x",size: 25),
               ),
               FloatingActionButton(
                 onPressed: () {
@@ -199,13 +163,7 @@ class _ButtonsHelperState extends State<ButtonsHelper> {
                 shape: CircleBorder(
                     side: BorderSide(width: 3, color: Colors.white70)),
                 backgroundColor: Colors.transparent,
-                child: Text(
-                  "7x",
-                  style: TextStyle(
-                      fontSize: 30,
-                      color: Colors.white70,
-                      fontFamily: "LCChalk"),
-                ),
+                child: StyleTextConst(text: "7x",size: 25),
               ),
               FloatingActionButton(
                 onPressed: () {
@@ -216,13 +174,7 @@ class _ButtonsHelperState extends State<ButtonsHelper> {
                 shape: CircleBorder(
                     side: BorderSide(width: 3, color: Colors.white70)),
                 backgroundColor: Colors.transparent,
-                child: Text(
-                  "8x",
-                  style: TextStyle(
-                      fontSize: 30,
-                      color: Colors.white70,
-                      fontFamily: "LCChalk"),
-                ),
+                child: StyleTextConst(text: "8x",size: 25),
               ),
               FloatingActionButton(
                 onPressed: () {
@@ -233,13 +185,7 @@ class _ButtonsHelperState extends State<ButtonsHelper> {
                 shape: CircleBorder(
                     side: BorderSide(width: 3, color: Colors.white70)),
                 backgroundColor: Colors.transparent,
-                child: Text(
-                  "9x",
-                  style: TextStyle(
-                      fontSize: 30,
-                      color: Colors.white70,
-                      fontFamily: "LCChalk"),
-                ),
+                child: StyleTextConst(text: "9x",size: 25),
               ),
               FloatingActionButton(
                 onPressed: () {
@@ -250,13 +196,7 @@ class _ButtonsHelperState extends State<ButtonsHelper> {
                 shape: CircleBorder(
                     side: BorderSide(width: 3, color: Colors.white70)),
                 backgroundColor: Colors.transparent,
-                child: Text(
-                  "10x",
-                  style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.white70,
-                      fontFamily: "LCChalk"),
-                ),
+                child: StyleTextConst(text: "10x",size: 20),
               ),
             ],
           ),

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -28,7 +30,7 @@ class _TestPageState extends State<TestPage> {
   final controllerOne = TextEditingController();
   Random randomize = Random();
 
-  void _onSubmited(String text) {
+  void onSubmited(String text) {
 
     setState(() {
       print(text);
@@ -99,7 +101,7 @@ class _TestPageState extends State<TestPage> {
                 style: TextStyle(color: Colors.white, fontSize: 18),
               ),
               onPressed: () {
-                _timer = RestartableTimer(_timerDuration, () {_onSubmited(" ");});
+                _timer = RestartableTimer(_timerDuration, () {onSubmited(" ");});
                 setState(() {
 
                   numWrongAnswer = 0;
@@ -142,7 +144,7 @@ class _TestPageState extends State<TestPage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    _timer = RestartableTimer(_timerDuration, () {_onSubmited(" ");});
+    _timer = RestartableTimer(_timerDuration, () {onSubmited(" ");});
     print("Init timerDuration = $_timerDuration, timer = $_timer");
     print("initState");
     labelText = _getLabelText();
@@ -191,6 +193,7 @@ class _TestPageState extends State<TestPage> {
         body: Container(
           child: Column(
             children: [
+              ProgressBarTick(start: 1,),
               SizedBox(
                 height: 20,
               ),
@@ -219,7 +222,7 @@ class _TestPageState extends State<TestPage> {
 
                       //maxLength: 2,
                       controller: controllerOne,
-                      onSubmitted: _onSubmited,
+                      onSubmitted: onSubmited,
                       onEditingComplete: () {},
                       textInputAction: TextInputAction.done,
                       style: TextStyle(
@@ -248,6 +251,65 @@ class _TestPageState extends State<TestPage> {
         ),
         backgroundColor: Colors.transparent,
       ),
+    );
+  }
+}
+
+class ProgressBarTick extends StatefulWidget {
+  ProgressBarTick({this.start});
+  double start = 1;
+  @override
+  _ProgressBarTickState createState() => _ProgressBarTickState();
+}
+
+class _ProgressBarTickState extends State<ProgressBarTick> {
+
+  Timer _timer;
+
+
+  void startTimer() {
+    const oneSec = const Duration(milliseconds: 100);
+    _timer = new Timer.periodic(
+      oneSec,
+          (Timer timer){
+        print("start = " + widget.start.toStringAsFixed(2));
+        if (widget.start.toStringAsFixed(2) == "-0.00") {
+          setState(() {
+            widget.start = 1;
+
+
+
+            //timer.cancel();
+          });
+        } else {
+          setState(() {
+
+            widget.start -= 0.01;
+          });
+        }
+      },
+    );
+  }
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    startTimer();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement
+    _timer.cancel();
+    super.dispose();
+  }
+
+
+  @override
+  Widget build(BuildContext context) {
+
+    return LinearProgressIndicator(
+      value: widget.start,
     );
   }
 }
